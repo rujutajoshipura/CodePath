@@ -117,9 +117,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleShadowColor" red="0.24667297830000001" green="0.25966731589999997" blue="0.96212369109999996" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="Settings"/>
                                 <connections>
                                     <segue destination="eld-cU-ofq" kind="modal" id="8kl-c0-s70"/>
                                 </connections>
