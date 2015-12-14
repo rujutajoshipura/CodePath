@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var defaultTip = 18
 class ViewController: UIViewController {
 
     @IBOutlet weak var BillT: UILabel!
@@ -20,9 +20,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var billText: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    var tips1 :Int = 0
+    var tips2 : Int = 0
+    var p1 : Int = 0
+    var p2 : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+       /* let toolbar = UIToolbar()
+        toolbar.frame = CGRectMake(0, self.view.frame.size.height - 46, self.view.frame.size.width, 46)
+        toolbar.sizeToFit()
+       
+        toolbar.backgroundColor = UIColor.redColor()
+        self.view.addSubview(toolbar)*/
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         PerP.hidden = true
@@ -48,8 +59,16 @@ class ViewController: UIViewController {
         
         var tips = [0.18,0.2,0.25]
         var people = [1,2,3,4,5]
-        
-        let numberP = people[peopleControl.selectedSegmentIndex]
+        var numberP = 0
+        if p1 == 0
+        {
+            numberP = people[peopleControl.selectedSegmentIndex]
+        }
+        else
+        {
+            numberP = people[p1]
+            peopleControl.selectedSegmentIndex = p1
+        }
 
         if billText.text == "" || billText.text == "0.00"
         {
@@ -67,7 +86,8 @@ class ViewController: UIViewController {
             billText.center.y = 289
             BillT.center.x = 180
             BillT.center.y = 221
-            
+            tips1 = tips2
+            p1 = p2
             
         }
         else
@@ -83,9 +103,9 @@ class ViewController: UIViewController {
             billText.font = UIFont(name: billText.font!.fontName, size: 17)
             BillT.font = UIFont(name: BillT.font!.fontName, size: 17)
             billText.center.x = 250
-            billText.center.y = 71
+            billText.center.y = 101
             BillT.center.x = 160
-            BillT.center.y = 71
+            BillT.center.y = 101
             billText.font = UIFont(name: billText.font!.fontName, size: 32)
         
         
@@ -95,9 +115,17 @@ class ViewController: UIViewController {
             {
                 billText.text="0.00"
             }
-          
-            
-            let tipP = tips[tipSelect.selectedSegmentIndex]
+          var tipP = 0.0
+            if tips1 == 0
+            {
+                tipP = tips[tipSelect.selectedSegmentIndex]
+            }
+            else
+            {
+                print("CXGGB")
+                tipP = tips[tips1]
+                tipSelect.selectedSegmentIndex = tips1
+            }
             
             let tip = tipP * Double((billText?.text)!)!
             
@@ -109,6 +137,10 @@ class ViewController: UIViewController {
             
             let amtPerP = total / Double(numberP)
             perPerson.text = String(format: "$%.2f", amtPerP)
+            tips2 = tips1
+            tips1 = 0
+            p2 = p1
+            p1 = 0
             if billText.text == "0.00"
             {
                 billText.text = ""
