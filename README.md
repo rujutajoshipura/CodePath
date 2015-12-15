@@ -29,8 +29,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories(if not found, click on codepathappfinal.gif in master:
-
-<img src='http://postimg.org/image/4ksjt703l/' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<a href='http://postimg.org/image/4ksjt703l/' target='_blank'><img src='http://s8.postimg.org/4ksjt703l/codepathappfinal.jpg' title='Video Walkthrough' border='0' alt="Video Walkthrough" /></a>
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
