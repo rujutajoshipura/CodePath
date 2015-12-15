@@ -35,35 +35,37 @@ class SettingsViewController: UIViewController {
         
         if defTip.text == "18"
         {
-            Dest.tips1 = 0
+            Dest.tips1 = 1
+            
         }
         else if defTip.text == "20"
         {
-            
-            Dest.tips1 = 1        }
+          
+            Dest.tips1 = 2     }
         else if defTip.text == "25"
         {
-            Dest.tips1 = 2
+            Dest.tips1 = 3
         }
         if labell.text == "1"
         {
-            Dest.p1 = 0
+            Dest.p1 = 1
         }
         else if labell.text == "2"
         {
-            Dest.p1 = 1
+            Dest.p1 = 2
+            
         }
         else if labell.text == "3"
         {
-            Dest.p1 = 2
+            Dest.p1 = 3
         }
         else if labell.text == "4"
         {
-            Dest.p1 = 3
+            Dest.p1 = 4
         }
         else if labell.text == "5"
         {
-            Dest.p1 = 4
+            Dest.p1 = 5
         }
 
 

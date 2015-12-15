@@ -60,14 +60,17 @@ class ViewController: UIViewController {
         var tips = [0.18,0.2,0.25]
         var people = [1,2,3,4,5]
         var numberP = 0
+    
         if p1 == 0
         {
+            
             numberP = people[peopleControl.selectedSegmentIndex]
         }
         else
         {
-            numberP = people[p1]
-            peopleControl.selectedSegmentIndex = p1
+  
+            numberP = people[p1-1]
+            peopleControl.selectedSegmentIndex = p1-1
         }
 
         if billText.text == "" || billText.text == "0.00"
@@ -86,8 +89,11 @@ class ViewController: UIViewController {
             billText.center.y = 289
             BillT.center.x = 180
             BillT.center.y = 221
+            
             tips1 = tips2
+   
             p1 = p2
+            print(p1)
             
         }
         else
@@ -122,9 +128,9 @@ class ViewController: UIViewController {
             }
             else
             {
-                print("CXGGB")
-                tipP = tips[tips1]
-                tipSelect.selectedSegmentIndex = tips1
+                
+                tipP = tips[tips1-1]
+                tipSelect.selectedSegmentIndex = tips1-1
             }
             
             let tip = tipP * Double((billText?.text)!)!
@@ -137,10 +143,24 @@ class ViewController: UIViewController {
             
             let amtPerP = total / Double(numberP)
             perPerson.text = String(format: "$%.2f", amtPerP)
-            tips2 = tips1
-            tips1 = 0
-            p2 = p1
-            p1 = 0
+            if(tips1 == 0)
+            {
+                tips1 = 0
+            }
+            else
+            {
+                tips2 = tips1
+                tips1 = 0
+            }
+            if(p1 == 0)
+            {
+                p1 = 0
+            }
+            else
+            {
+                p2 = p1
+                p1 = 0
+            }
             if billText.text == "0.00"
             {
                 billText.text = ""
